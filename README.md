@@ -14,13 +14,13 @@ O projeto é estruturado da seguinte forma:
 - Banco de dados PostgreSQL versão 12.6;
 - Frontend em React;
 
-### 1)Download do projeto
+### 1) Download do projeto
 
 ```
 $ https://github.com/dewtech-technologies/eletronic-schedule-backend.git](https://github.com/wleandrooliveira/facilita-juridica.git
 $ cd route-clients
 ```
-### 2)Execução do projeto
+### 2) Execução do projeto
 ```
 $ docker compose up para executar o container do banco de dados;
 ```
