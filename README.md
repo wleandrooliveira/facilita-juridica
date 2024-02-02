@@ -12,7 +12,7 @@ O projeto é estruturado da seguinte forma:
 - node v18.14.1;
 - Nest JS v10;
 - Banco de dados PostgreSQL versão 12.6;
-- Frontend em React;
+- Frontend em React 18.2.0;
 
 ### 1) Download do projeto
 
