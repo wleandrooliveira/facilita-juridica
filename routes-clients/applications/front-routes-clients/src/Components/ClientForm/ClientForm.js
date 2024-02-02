@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import * as clienteService from '../../Services/ClienteService';
+import './ClientForm.css';
 
-const ClienteForm = () => {
+const ClientForm = () => {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
-    const [clientes, setClientes] = useState([]);
+    const [coordX, setCoordX] = useState('');
+    const [coordY, setCoordY] = useState('');
 
-    useEffect(() => {
-        const fetchClientes = async () => {
-            const fetchedClientes = await clienteService.getClientes();
-            setClientes(fetchedClientes);
-        };
-
-        fetchClientes();
-    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const cliente = { nome, email, telefone };
+        const cliente = {
+            nome,
+            email,
+            telefone,
+            x: parseFloat(coordX),
+            y: parseFloat(coordY)
+        };
         const data = await clienteService.addCliente(cliente);
         if (data) {
             const updatedClientes = await clienteService.getClientes();
-            setClientes(updatedClientes);
             setNome('');
             setEmail('');
             setTelefone('');
+            setCoordX('');
+            setCoordY('');
         }
     };
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="client-form">
                 <input
                     type="text"
                     value={nome}
@@ -53,19 +54,24 @@ const ClienteForm = () => {
                     placeholder="Telefone"
                     required
                 />
+                <input
+                    type="number"
+                    value={coordX}
+                    onChange={(e) => setCoordX(e.target.value)}
+                    placeholder="Coordenada X"
+                    required
+                />
+                <input
+                    type="number"
+                    value={coordY}
+                    onChange={(e) => setCoordY(e.target.value)}
+                    placeholder="Coordenada Y"
+                    required
+                />
                 <button type="submit">Adicionar Cliente</button>
             </form>
-
-            <h2>Lista de Clientes</h2>
-            <ul>
-                {clientes.map(cliente => (
-                    <li key={cliente.id}>
-                        {cliente.nome} - {cliente.email} - {cliente.telefone}
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 };
 
-export default ClienteForm;
+export default ClientForm;

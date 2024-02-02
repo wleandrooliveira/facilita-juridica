@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class Cliente {
+export class Client {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -13,4 +13,10 @@ export class Cliente {
 
     @Column()
     telefone: string;
+
+    @Column('float')
+    x: number;
+
+    @Column('float')
+    y: number;
 }

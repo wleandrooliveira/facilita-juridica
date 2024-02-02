@@ -1,4 +1,4 @@
-.cliente-form {
+.client-form {
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
@@ -6,16 +6,16 @@
     border-radius: 8px;
 }
 
-.cliente-form input,
-.cliente-form button {
-    width: 100%;
+.client-form input,
+.client-form button {
+    width: 90%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #ddd;
 }
 
-.cliente-form button {
+.client-form button {
     background-color: #5cb85c;
     color: white;
     border: none;
@@ -23,6 +23,6 @@
     transition: background-color 0.3s;
 }
 
-.cliente-form button:hover {
+.client-form button:hover {
     background-color: #4cae4c;
 }
